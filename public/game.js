@@ -11,6 +11,7 @@ function setupSocket() {
         console.log(jsonGameState);
 
         var jsonstr = JSON.parse(jsonGameState)
+        console.log(jsonstr["equipment"]["shovel"]["numberOwned"])
         var gold = jsonstr["gold"]
         var shovelinfo = { "name" : jsonstr["equipment"]["shovel"]["name"], "numown" : jsonstr["equipment"]["shovel"]["numberOwned"],
     "cost" : jsonstr["equipment"]["shovel"]["cost"]}
@@ -18,17 +19,17 @@ function setupSocket() {
         "cost" : jsonstr["equipment"]["excavator"]["cost"]}
         var mineinfo = { "name" : jsonstr["equipment"]["mine"]["name"], "numown" : jsonstr["equipment"]["mine"]["numberOwned"],
         "cost" : jsonstr["equipment"]["mine"]["cost"]}
+        console.log(shovelinfo["numown"])
 
-        document.getElementById("gold").innerHTML = gold
-        document.getElementById("shovelname").innerHTML = shovelinfo["name"]
-        document.getElementById("shovelnum").innerHTML = shovelinfo["numown"]
-        document.getElementById("shovelcost").innerHTML = shovelinfo["cost"]
-        document.getElementById("excname").innerHTML = excavinfo["name"]
-        document.getElementById("excnumb").innerHTML = excavinfo["numown"]
-        document.getElementById("exccost").innerHTML = excavinfo["cost"]
-        document.getElementById("minename").innerHTML = mineinfo["name"]
-        document.getElementById("minenumb").innerHTML = mineinfo["numown"]
-        document.getElementById("minecost").innerHTML = mineinfo["cost"]
+        document.getElementById("gold").innerHTML = "You have " + gold.toString() + " gold!"
+        document.getElementById("shovelinfo").innerHTML = "You own " + shovelinfo["numown"].toString() + " "
+        + shovelinfo["name"].toString() + "(s). They cost " + shovelinfo["cost"].toString() + " gold a piece."
+        document.getElementById("excinfo").innerHTML = "You own " + excavinfo["numown"].toString() + " "
+        + excavinfo["name"].toString() + "(s). They cost " + excavinfo["cost"].toString() + " gold a piece."
+        document.getElementById("mineinfo").innerHTML = "You own " + mineinfo["numown"].toString() + " "
+        + mineinfo["name"].toString() + "(s). They cost " + mineinfo["cost"].toString() + " gold a piece."
+
+    
 
 
 
