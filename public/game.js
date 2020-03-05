@@ -1,7 +1,7 @@
 // Change "test" to any username you'd like to start a new game
 var username = "Roze";
 
-var socket = io.connect("https://tictactoe.info/", {transports: ['websocket']});
+var socket = io.connect("http://localhost:8080", {transports: ['websocket']});
 setupSocket();
 
 function setupSocket() {
